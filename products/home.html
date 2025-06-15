@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            padding: 8px 12px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #ffffff;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .delete-btn {
+            float: right;
+            background-color: red;
+        }
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📦 Inventory Dashboard</h1>
+
+<a href="{% url 'add_product' %}">➕ Add Product</a>
+<a href="{% url 'add_supplier' %}">➕ Add Supplier</a>
+
+<ul>
+{% for product in products %}
+  <li>
+    <strong>{{ product.name }}</strong> - Qty: {{ product.quantity }} - Supplier: {{ product.supplier }}
+    <a class="delete-btn" href="{% url 'delete_product' product.id %}">❌ Delete</a>
+  </li>
+{% empty %}
+  <li>No products yet.</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Supplier</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background-color: #fff5e6;
+        }
+        h2 {
+            color: #8e44ad;
+        }
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #6f42c1;
+            color: white;
+            border: none;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #4e2a99;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<h2>🏭 Add Supplier</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<a href="{% url 'home' %}">← Back to Dashboard</a>
+
+</body>
+</html>
